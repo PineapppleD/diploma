@@ -38,6 +38,7 @@ const ContestRoom: React.FC<QuizRoomProps> = ({ quizRoom }) => {
          <div>
             {/* Render the QuizQuestion component with the current question */}
             {currentQuestion && <QuizQuestion question={currentQuestion} />}
+            <p>DIas</p>
         </div>
     );
 };

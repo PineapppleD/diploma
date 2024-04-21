@@ -17,6 +17,7 @@ import Home from "./pages/Home/Home";
 import HomeContent from "./pages/Home/components/HomeContent";
 import CreateContestDetails from "./components/Contest/CreateContestDetails";
 import ContestRoom from "./components/Contest/ContestRoom";
+import MyContests from "./components/Profile/MyContests";
 
 const App = () => {
   
@@ -24,7 +25,8 @@ const App = () => {
 
   return (
     <>
-      <Navbar /> <ContestManagement />
+
+      {/* <Navbar /> <ContestManagement />
       <Routes>
         <Route path="/createcontestDetails" element={<CreateContestDetails />} />
         <Route path="/goals" element={<Goals />} />
@@ -38,9 +40,10 @@ const App = () => {
           <Route path="/createContest" element={<CreateContest />} />
         )}
         <Route path="/contest/:id" element={<ContestDetails />} />
-        {/* <Route path="progress" element={<Home />} /> */}
-        <Route path="/contestroom" element={<ContestRoom />} />
-      </Routes>
+         <Route path="progress" element={<Home />} /> 
+        <Route path="/contestroom/:id" element={<ContestRoom />} />
+      </Routes> */}
+      <MyContests />
     </>
   );
 };
