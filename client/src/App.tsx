@@ -26,9 +26,9 @@ const App = () => {
   return (
     <>
 
-      {/* <Navbar /> <ContestManagement />
+      <Navbar /> <ContestManagement />
       <Routes>
-        <Route path="/createcontestDetails" element={<CreateContestDetails />} />
+        {/* <Route path="/createcontestDetails" element={<CreateContestDetails />} />
         <Route path="/goals" element={<Goals />} />
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationForm />} />
@@ -40,9 +40,9 @@ const App = () => {
           <Route path="/createContest" element={<CreateContest />} />
         )}
         <Route path="/contest/:id" element={<ContestDetails />} />
-         <Route path="progress" element={<Home />} /> 
+         <Route path="progress" element={<Home />} />  */}
         <Route path="/contestroom/:id" element={<ContestRoom />} />
-      </Routes> */}
+      </Routes>
       <MyContests />
     </>
   );

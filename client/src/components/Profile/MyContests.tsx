@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useUserContext } from '../../contexts/userContext/userContextProvider'
 import { IContest } from '../../models';
 import { getContestByID } from '../../firebase/contestOperations';
+import { Link } from 'react-router-dom';
 
 export default function MyContests() {
   const { user } = useUserContext();
@@ -27,7 +28,14 @@ export default function MyContests() {
     <div>
       <ul>
         {contests.map((contest, index) => (
-          <li key={index}>{contest.description}</li>
+          <li key={index}>
+            <p>Description: {contest.description}</p>
+            <p>Name: {contest.title}</p>
+            <ul>
+                <p>Quiz</p>
+                <Link to={`contestroom/:${user?.contests && user.contests[index]}`}>Join the quiz</Link>
+            </ul>
+          </li>
         ))}
       </ul>
     </div>
