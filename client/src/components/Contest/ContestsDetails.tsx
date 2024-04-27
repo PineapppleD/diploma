@@ -32,7 +32,7 @@ const ContestDetails = () => {
     if (contest) {
       const fetchParticipants = async () => {
         const updatedParticipants = await Promise.all(
-          contest.Participants.map(async (id: string) => {
+          contest.Participants.map(async ({id}) => {
             const user = await getUserById(id);
             console.log(user);
             return user;
@@ -77,7 +77,7 @@ const ContestDetails = () => {
         if (user.role === "student") {
           await addParticipant(userId as string, id as string);
           
-          navigate(`/contestroom/:${id}`)
+          navigate(`/contestroom/${id}`)
         } else {
           console.log("User is not a student.");
         }

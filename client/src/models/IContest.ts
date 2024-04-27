@@ -12,6 +12,11 @@ export enum ContestTypes {
     Collaborative = "Collaborative",
     PeerAssessment = "Peer Assessment",
   }
+
+export interface Participant {
+    id: string;
+    points: number;
+}
   
 
 export interface IContest {
@@ -21,7 +26,7 @@ export interface IContest {
     start: Timestamp;
     end: Timestamp;
     organizer: string;
-    Participants: string[];
+    Participants: Participant[];
     category: Categories;
     tags: string[];
     completed: boolean;

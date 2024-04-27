@@ -1,4 +1,4 @@
-import { Categories, ContestTypes, IContest, IQuizQuestion } from "../models";
+import { Categories, ContestTypes, IContest, IQuizQuestion, Participant } from "../models";
 import { auth, db } from "./firebase";
 
 //Now import this
@@ -132,7 +132,7 @@ export const addParticipant = async (userId: string, contestId: string) => {
       } else {
         // Update the contest document with the new participant
         await updateDoc(contestDocRef, {
-          Participants: [...contestData.Participants, userId],
+          Participants: [...contestData.Participants, {id: userId, points: 0}],
         });
 
         // Fetch user details
@@ -206,4 +206,35 @@ export const removeContestFromParticipants = async (contestId: string) => {
     console.error("Error removing contest:", error);
     throw new Error("Failed to remove contest");
   }
+};
+
+
+// Function to calculate points for each participant and update the contest
+export const calculateAndUpdatePoints = async (contestId: string, participantId: string, points: number) => {
+    try {
+        // Get the contest document reference
+        const contestRef = doc(db, 'contests', contestId);
+        const contestDoc = await getDoc(contestRef);
+
+        if (contestDoc.exists()) {
+            // Get the current contest data
+            const contestData = contestDoc.data() as IContest;
+
+            // Update participant's points
+            const updatedParticipants = contestData.Participants.map((participant: Participant) => {
+                if (participant.id === participantId) {
+                    return { ...participant, points: points };
+                }
+                return participant;
+            });
+
+            // Update the contest document with the new participant points
+            await updateDoc(contestRef, { Participants: updatedParticipants });
+            console.log('Participant points updated successfully.');
+        } else {
+            console.error(`Contest with ID ${contestId} not found.`);
+        }
+    } catch (error) {
+        console.error('Error updating participant points:', error);
+    }
 };
