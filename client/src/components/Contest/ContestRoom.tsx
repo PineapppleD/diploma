@@ -5,7 +5,7 @@ import { getContestByID } from '../../firebase/contestOperations';
 import QuizQuestion from '../Quiz/QuizQuestion';
 import { calculateAndUpdatePoints } from '../../firebase/contestOperations'; // Import the function to calculate and update points
 import { useUserContext } from '../../contexts/userContext/userContextProvider';
-import { calculatePoints } from '../utilities/calculatePoints';
+import { calculatePoints } from '../../utilities/calculatePoints';
 
 const ContestRoom: React.FC = () => {
     const {userId} = useUserContext();

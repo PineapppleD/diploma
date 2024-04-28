@@ -46,7 +46,6 @@ export function RegistrationForm() {
         addUser(user.uid, {
           ...values,
           contests: [],
-          incompletedContests: [],
           notificaitons: [],
         });
       } else {

@@ -6,7 +6,6 @@ export default function Welcome() {
   return (
     <div>
       {user && <h1>Hello {user.name}</h1>}
-      {/* Assuming displayName is a property of your User object */}
     </div>
   );
 }

@@ -18,12 +18,14 @@ import HomeContent from "./pages/Home/components/HomeContent";
 import CreateContestDetails from "./components/Contest/CreateContestDetails";
 import ContestRoom from "./components/Contest/ContestRoom";
 import MyContests from "./components/Profile/MyContests";
+import Test from "./components/Test";
 
 const App = () => {
   const { user } = useUserContext();
 
   return (
     <>
+    <Test />
       <Navbar /> <ContestManagement />
       <Routes>
         <Route
@@ -31,7 +33,6 @@ const App = () => {
           element={<CreateContestDetails />}
         />
         <Route path="/goals" element={<Goals />} />
-        <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationForm />} />
         <Route path="/login" element={<LoginPage />} />
         {user && <Route path="/profile" element={<ProfilePage />} />}
