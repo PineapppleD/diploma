@@ -5,3 +5,5 @@ export * from "./IUser";
 export * from "./IQuizQuestion";
 export * from "./IQuiz";
 export * from "./IQuizRoom";
+export * from "./IContest";
+export * from "./IClass";

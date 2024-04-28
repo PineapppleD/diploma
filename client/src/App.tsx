@@ -19,14 +19,16 @@ import CreateContestDetails from "./components/Contest/CreateContestDetails";
 import ContestRoom from "./components/Contest/ContestRoom";
 import MyContests from "./components/Profile/MyContests";
 import Test from "./components/Test";
+import ClassInfoForm from "./components/Classes/ClassInfoForm";
 
 const App = () => {
   const { user } = useUserContext();
 
   return (
     <>
+    <ClassInfoForm />
     <Test />
-      <Navbar /> <ContestManagement />
+      {/* <Navbar /> <ContestManagement />
       <Routes>
         <Route
           path="/createcontestDetails"
@@ -45,7 +47,7 @@ const App = () => {
         <Route path="progress" element={<Home />} />
         <Route path="/contestroom/:id" element={<ContestRoom />} />
       </Routes>
-      <MyContests />
+      <MyContests /> */}
     </>
   );
 };
